@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { Check } from 'phosphor-react';
 import { useEffect, useState } from 'react';
 import { api } from '../lib/axios';
-
+ 
 interface HabitLisProps {
   date: Date
   onCompletedChanged: (completed: number) => void
@@ -26,10 +26,10 @@ export function HabitsList({ date, onCompletedChanged }: HabitLisProps) {
     api.get('day', {
       params:{
         date: date.toISOString()
-      }
+      }// pega a data da api como string
     }).then(response => {
       setHabitsInfo(response.data)
-    })
+    }) //dado buscado na api
   },[])
 
   async function handleToggleHabit(habitId: string) {
